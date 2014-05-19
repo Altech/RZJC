@@ -1,0 +1,4 @@
+gem 'slim'
+gem 'scss'
+gem 'fssm'
+gem 'colorize'
