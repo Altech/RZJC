@@ -5,6 +5,10 @@ $section-title-color-pc: #FFE420;
 
 body.index {
   
+  #container {
+    margin: 0 auto;
+  }
+   
   img#title {
     margin: 0 auto;
     margin-top: 28px;
@@ -78,6 +82,56 @@ body.index {
     text-align: right;
     font-family: $gothic;
     font-size: 18pt;
+  }
+  
+  @media screen and (min-width: $pc-min-width) {
+    .header {
+      float: left;
+      margin-right: 30px;
+    }
+    .explanations {
+      margin-top: 0px;
+      padding-top: 26px;
+      .section {
+        margin-bottom: 24px;
+        h2 {
+          font-size: 18pt;
+        }
+        ul {
+          font-size: 10pt;
+          li {
+            margin-bottom: 6px;
+            text-indent: 1em;
+          }
+          .def-list {
+            text-indent: 0em;
+          }
+        }
+      }
+      
+      #regulation {
+        margin-bottom: 12px;
+      }
+
+      #qanda {
+        float: left;
+      }
+    }
+    
+    footer {
+      width: 222px;
+      height: 40px;
+      z-index: 10;
+      position: fixed;
+      bottom: 10px;
+      right: 0px;
+      margin: 0;
+    }
+
+    #container {
+      width: auto;
+    }
+
   }
   
 }

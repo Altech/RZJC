@@ -1,16 +1,13 @@
 body {
   color: white;
   font-family: "ヒラギノ明朝 Pro","Hiragino Mincho Pro", "HG明朝E","ＭＳ Ｐ明朝","ＭＳ 明朝",serif;
-  background-color: black;
-  background-image: url('../assets/bg.jpg');
-  background-repeat: no-repeat;
+  background-image: url('../assets/rzjc.png'), url('../assets/bg.jpg');
+  background-color: none, black;
+  background-repeat: no-repeat, repeat;
+  background-position: right bottom, top left;
 }
 
 div#container {
   width: 640px;
   margin: 0px;
-  background-color: none;
-  background-image: url('../assets/rzjc.png'); 
-  background-position: right bottom;
-  background-repeat: no-repeat;
 }

@@ -34,5 +34,14 @@ body.qanda {
       }
     }
   }
+  @media screen and (min-width: $pc-min-width) {
+    #container {
+      font-size: 11pt;
+    }
+    .desc {
+      margin-bottom: 20px;
+      font-size: 9pt;
+    }
+  }
 }
 
