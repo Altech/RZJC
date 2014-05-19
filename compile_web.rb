@@ -9,7 +9,7 @@ def compile(base, relative, compiler)
   cmd, meta_ext, ext = compiler
   sans_ext = relative[/(^.+)\.[^\.]+$/,1]
   output = "#{sans_ext}.#{ext}"
-  FileUtils.rm output
+  FileUtils.rm output if File.exists? output
   if system "#{cmd} #{relative} > #{output}"
     puts "#{Time.now.strftime("%Y-%m-%d %H:%M")}  #{sans_ext} has compiled.".green
   else

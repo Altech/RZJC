@@ -1,3 +1,8 @@
+@import "constants";
+
+$section-title-color: #ECFF5F;
+$section-title-color-pc: #FFE420;
+
 body.index {
   
   img#title {
@@ -17,17 +22,17 @@ body.index {
       margin-bottom: 28px;
       h2:before { content:"> "; }
       h2 {
-        font-family: "ヒラギノ角ゴ Pro","Hiragino Kaku Gothic Pro", 'メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
-        color: #ECFF5F;
+        font-family: $gothic;
+        color: $section-title-color;
         font-size: 35pt;
         margin-bottom: 6px;
-        @media screen and (min-width: 760px){ font-size: 28pt; color: #FFE420; }
+        @media screen and (min-width: $pc-min-width){ font-size: 28pt; color: $section-title-color-pc; }
       }
       ul {
         font-size: 18pt;
         margin-left: 30px;
         list-style-type: none;
-        @media screen and (min-width: 760px){ font-size: 14pt; }
+        @media screen and (min-width: $pc-min-width){ font-size: 14pt; }
         li {
           margin-bottom: 10px;
         }
@@ -37,7 +42,7 @@ body.index {
     #entry #caution {
       color: red;
       font-weight: bold;
-      font-family: "ヒラギノ角ゴ Pro","Hiragino Kaku Gothic Pro", 'メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
+      font-family: $gothic;
     }
 
     #method, #the-day {
@@ -61,8 +66,8 @@ body.index {
 
     #qanda {
       a {
-        color: #ECFF5F;
-        @media screen and (min-width: 760px){ color: #FFE420; }
+        color: $section-title-color;
+        @media screen and (min-width: $pc-min-width){ color: $section-title-color-pc; }
       }
     }
   }
@@ -71,7 +76,7 @@ body.index {
     margin-bottom: 12px;
     padding-right: 20px;
     text-align: right;
-    font-family: "ヒラギノ角ゴ Pro","Hiragino Kaku Gothic Pro", 'メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
+    font-family: $gothic;
     font-size: 18pt;
   }
   
