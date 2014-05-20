@@ -82,6 +82,10 @@ body.index {
     text-align: right;
     font-family: $gothic;
     font-size: 18pt;
+    img#twitter {
+      width: 222px;
+      height: 40px;
+    }
   }
   
   @media screen and (min-width: $pc-min-width) {

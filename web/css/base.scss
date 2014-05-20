@@ -1,8 +1,15 @@
+@import "constants";
+
 body {
   color: white;
   font-family: "ヒラギノ明朝 Pro","Hiragino Mincho Pro", "HG明朝E","ＭＳ Ｐ明朝","ＭＳ 明朝",serif;
-  background-image: url('../assets/rzjc.png'), url('../assets/bg.jpg');
   background-color: none, black;
+  background-image: url('../assets/rzjc.png'), url('../assets/bg_phone.jpg');
+  background-size: 501px 235px, 970px 2000px;
+  @media screen and (min-width: $pc-min-width) {
+    background-image: url('../assets/rzjc.png'), url('../assets/bg.jpg');
+    background-size: 501px 235px, 1390px 2000px;
+  }
   background-repeat: no-repeat, repeat;
   background-position: right bottom, top left;
 }
