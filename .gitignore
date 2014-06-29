@@ -2,3 +2,6 @@
 **/*.css
 
 .sass-cache
+
+Gemfile.lock
+database.yml

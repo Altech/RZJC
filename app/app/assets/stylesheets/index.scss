@@ -1,0 +1,141 @@
+@import "constants";
+
+$section-title-color: #FFEF03;
+$section-title-color-pc: #FFE420;
+
+body.index {
+  
+  #container {
+    margin: 0 auto;
+  }
+   
+  img#title {
+    margin: 0 auto;
+    margin-top: 28px;
+    display: block;
+  }
+
+  img#freedom {
+    display: block;
+  }
+
+  .explanations {
+    margin-top: 27px;
+    margin-left: 51px;
+    .section {
+      margin-bottom: 28px;
+      h2:before { content:"> "; }
+      h2 {
+        font-family: $gothic;
+        color: $section-title-color;
+        font-size: 35pt;
+        margin-bottom: 6px;
+        @media screen and (min-width: $pc-min-width){ font-size: 28pt; color: $section-title-color-pc; }
+      }
+      ul {
+        font-size: 18pt;
+        margin-left: 30px;
+        list-style-type: none;
+        @media screen and (min-width: $pc-min-width){ font-size: 14pt; }
+        li {
+          margin-bottom: 10px;
+        }
+      }
+    }
+
+    #entry #caution {
+      color: red;
+      font-weight: bold;
+      font-family: $gothic;
+    }
+
+    #method, #the-day {
+      ul {
+        margin-left: 15px;
+      }
+      li:before { content:"- "; }
+    }
+
+    #regulation {
+      margin-bottom: 20px;
+      li.intentional-layout {
+        .def-title {
+          float: left;
+        }
+        .def-list {
+          overflow:auto;
+        }
+      }
+    }
+
+    #qanda {
+      a {
+        color: $section-title-color;
+        @media screen and (min-width: $pc-min-width){ color: $section-title-color-pc; }
+      }
+    }
+  }
+
+  footer {
+    margin-bottom: 12px;
+    padding-right: 20px;
+    text-align: right;
+    font-family: $gothic;
+    font-size: 18pt;
+    img#twitter {
+      width: 222px;
+      height: 40px;
+    }
+  }
+  
+  @media screen and (min-width: $pc-min-width) {
+    .header {
+      float: left;
+      margin-right: 30px;
+    }
+    .explanations {
+      margin-top: 0px;
+      padding-top: 26px;
+      .section {
+        margin-bottom: 24px;
+        h2 {
+          font-size: 18pt;
+        }
+        ul {
+          font-size: 10pt;
+          li {
+            margin-bottom: 6px;
+            text-indent: 1em;
+          }
+          .def-list {
+            text-indent: 0em;
+          }
+        }
+      }
+      
+      #regulation {
+        margin-bottom: 12px;
+      }
+
+      #qanda {
+        float: left;
+      }
+    }
+    
+    footer {
+      width: 222px;
+      height: 40px;
+      z-index: 10;
+      position: fixed;
+      bottom: 10px;
+      right: 0px;
+      margin: 0;
+    }
+
+    #container {
+      width: auto;
+    }
+
+  }
+  
+}

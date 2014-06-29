@@ -1,0 +1,18 @@
+doctype html
+html
+  head
+    title R.Z.J.C.2014 - 機動戦士ガンダムSEED Destiny 連合 V.S. Z.A.F.T.2 全国大会
+    meta name="viewport" content="width=640"
+    meta name="keywords" content="連ザ, 連ザ2, 全国大会, RZJC"
+    meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
+    == stylesheet_link_tag 'application', media: 'all'
+  body class=action_name
+    == yield
+
+javascript:
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-51131824-1', 'vs-seed.net');
+  ga('send', 'pageview');
