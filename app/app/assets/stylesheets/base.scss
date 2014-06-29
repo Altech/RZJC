@@ -2,7 +2,7 @@
 
 body {
   color: white;
-  font-family: "ヒラギノ明朝 Pro","Hiragino Mincho Pro", "HG明朝E","ＭＳ Ｐ明朝","ＭＳ 明朝",serif;
+  font-family: $mintyo;
   background-color: none, black;
   background-image: url('../assets/rzjc.png'), url('../assets/bg_phone.jpg');
   background-size: 501px 235px, 970px 2000px;
@@ -12,6 +12,22 @@ body {
   }
   background-repeat: no-repeat, repeat;
   background-position: right bottom, top left;
+}
+
+a {
+  color: $link-color;
+}
+
+a:active {
+  color: $link-color;
+}
+
+a:hover {
+  color: $link-color;
+}
+
+a:visited {
+  color: $link-color;
 }
 
 div#container {

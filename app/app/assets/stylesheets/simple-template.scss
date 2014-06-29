@@ -1,0 +1,52 @@
+@import "constants";
+
+body {
+  #container {
+    padding: 20px;
+    font-size: 14pt;
+    .main-contents {
+      padding: 20px;
+    }
+  }
+  h2 {
+    font-family: $gothic;
+    font-size: 40pt;
+    text-shadow: 0px 0px 4px blue;  
+  }
+  h3 {
+    font-family: $gothic;
+  }
+  div.h3-body {
+    margin-top: 8px;
+  }
+
+  .desc {
+    margin-bottom: 20px;
+    font-size: 12pt;
+  }
+
+  dl {
+    dt {
+      margin-bottom: 10px;
+      border-bottom: 1px solid #EA0000;
+    }
+
+    dd {
+      margin-bottom: 24px;
+      margin-left: 20px;
+
+      p {
+        margin-top: 10px;
+      }
+    }
+  }
+  @media screen and (min-width: $pc-min-width) {
+    #container {
+      font-size: 11pt;
+    }
+    .desc {
+      margin-bottom: 20px;
+      font-size: 9pt;
+    }
+  }
+}
