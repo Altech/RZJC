@@ -4,6 +4,10 @@ $section-title-color: #FFEF03;
 $section-title-color-pc: #FFE420;
 
 body.index {
+  #to-submit {
+    color:white;
+    border-bottom: 1px solid blue;
+  }
   
   #container {
     margin: 0 auto;

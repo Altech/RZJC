@@ -1,0 +1,67 @@
+#container
+  h2 参加登録
+  .main-contents
+    .desc
+      | 大会参加登録ページです。以下のフォームに必要事項を入力してください。
+      br
+      | また、斡旋を希望の方のためのページを現在準備中です。数日以内に公開されると思います。
+      / a href="mediation" こちら
+      / | から申し込んでください。
+
+    form action="/submit" method="post"
+      h3 チーム情報
+      .h3-body
+        dl
+          dt 名前
+          dd
+            input type="text" name="team-name"
+          dt 地域
+          dd
+            select name="team-region"
+              - for region in %w[北海道 青森 岩手 宮城 秋田 山形 福島 茨城 栃木 群馬 埼玉 千葉 東京 神奈川 新潟 富山 石川 福井 山梨 長野 岐阜 静岡 愛知 三重 滋賀 京都 大阪 兵庫 奈良 和歌山 鳥取 島根 岡山 広島 山口 徳島 香川 愛媛 高知 福岡 佐賀 長崎 熊本 大分 宮崎 鹿児島 沖縄] do
+                - if region != '東京'
+                  option value=region
+                    == region
+                - else
+                  option value=region selected="selected"
+                    == region
+          dt 連絡先アドレス
+          dd
+            input type="text" name="team-address"
+          dt 連絡先アドレス（確認）
+          dd
+            input type="text" name="team-address-confirm"
+      - for i in [1,2] do
+        h3
+          == "プレイヤー情報#{i}"
+        .h3-body  
+          dl
+            dt 名前
+            dd
+              input type="text" name="player#{i}-name"
+            dt 機体（※受付期間中であれば変更可）
+            dd
+              select name="player#{i}-mecha-id"
+                - for mecha in @valid_mechas do
+                  option value=mecha.id
+                    == mecha.full_name
+            dt 覚醒
+            dd
+              select name="player#{i}-force-type"
+                - for force_type in %w[SPEED RUSH POWER] do
+                  option value=force_type
+                    == force_type
+            dt パイロット（一般兵の場合は入力する名前）
+            dd
+              input type="text" name="player#{i}-pilot"
+      h3 アンケート
+      .h3-body  
+        dl
+          dt 翌日にエキシビションとして団体戦+対戦会を企画予定ですが、参加したと思いますか？
+          dd
+            input type="radio" name="question-exhibition" value="both" できれば団体戦も対戦会も参加したい
+            br
+            input type="radio" name="question-exhibition" value="later" 対戦会だけ参加したい
+            br
+            input type="radio" name="question-exhibition" value="neither" 参加しようと思わない
+      input type="submit" value="送信する"

@@ -1,0 +1,77 @@
+#container
+  h2 相方斡旋
+  .main-contents
+    .desc
+      | 一緒に出れる人がいないけど参加したい…という方に同じ境遇の人を斡旋します。
+      br
+      | 斡旋は得意な機体、組みたい機体、地域を考慮してできるだけ公平に行いますが、必ずしもその通りにはならない可能性があります。また確実に斡旋できることを保証するものでもありません。
+      br
+      | 相方が決まったら（参加受付終了時点を予定）連絡先を教えますので、チーム名を決めて参加登録完了となります。
+
+    form
+      dl
+        dt 名前
+        dd
+          input type="text" name="player-name"
+        dt 地域
+        dd
+          select name="player-region"
+            - for region in %w[北海道 青森 岩手 宮城 秋田 山形 福島 茨城 栃木 群馬 埼玉 千葉 東京 神奈川 新潟 富山 石川 福井 山梨 長野 岐阜 静岡 愛知 三重 滋賀 京都 大阪 兵庫 奈良 和歌山 鳥取 島根 岡山 広島 山口 徳島 香川 愛媛 高知 福岡 佐賀 長崎 熊本 大分 宮崎 鹿児島 沖縄] do
+              - if region != '東京'
+                option value=region
+                  == region
+              - else
+                option value=region selected="selected"
+                  == region
+        dt 連絡先アドレス
+        dd
+          input type="text" name="team-address"
+        dt 連絡先アドレス（確認）
+        dd
+          input type="text" name="team-address-confirm"
+        dt 得意な機体
+        dd
+          ol
+            - for i in [1,2,3]
+              li
+                select name="player-mecha-id-good-#{i}" id="player-mecha-good-#{i}"
+                  - for mecha in @valid_mechas do
+                    option value=mecha.id
+                      == mecha.full_name
+        dt 組みたい機体
+        dd
+          ol
+            - for i in [1,2,3]
+              li
+                select name="player-mecha-id-wanted-#{i}" id="player-mecha-wanted-#{i}"
+                  - for mecha in @valid_mechas do
+                    option value=mecha.id
+                      == mecha.full_name
+        dt 覚醒
+        dd
+          select name="player-force-type"
+            - for force_type in %w[SPEED RUSH POWER] do
+              option value=force_type
+                == force_type
+        dt パイロット（一般兵の場合は入力する名前）
+        dd
+          input type="text" name="player-pilot"
+      h3 アンケート
+      dl
+        dt 翌日にエキシビションとして団体戦+対戦会を企画予定ですが、参加したと思いますか？
+        dd
+          input type="radio" name="question-exhibition" value="both" できれば団体戦も対戦会も参加したい
+          br
+          input type="radio" name="question-exhibition" value="later" 対戦会だけ参加したい
+          br
+          input type="radio" name="question-exhibition" value="later" 参加しようと思わない
+
+javascript:
+  window.onload = function(){
+  for (i = 1; i <= 3; i++) {
+    document.getElementById("player-mecha-good-" + i).selectedIndex = -1;
+    document.getElementById("player-mecha-wanted-" + i).selectedIndex = -1;
+    }}
+
+
+    

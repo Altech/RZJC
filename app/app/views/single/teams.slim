@@ -1,0 +1,11 @@
+#container
+  h2 エントリー済みチーム一覧
+  .main-contents
+    .confrimed-msg
+      == @msg
+    dl
+      - for team in @teams do
+        dt
+          == team.name
+        dd
+          == "#{team.player1.name} - #{team.player2.name}（#{team.region}）"
