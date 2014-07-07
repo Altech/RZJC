@@ -62,8 +62,36 @@ class SingleController < ApplicationController
     @teams = RzjcTeam.where(confirmed: true)
   end
 
-  def mediation_post
-    binding.pry
+  def mediation_post(p = params)
+    blankable_fields = %w[player-name player-region player-address player-address-confirm player-pilot]
+    unless blankable_fields.all?{|f| p[f].present?}
+      render :text => "全ての空欄を埋めてください" and return
+    end
+    unless p['player-address'] == p['player-address-confirm']
+      render :text => "確認用のメールアドレスが異なっています" and return
+    end
+    p.delete('player-address-confirm')
+
+    # pre-save
+    player = RzjcSoloPlayer.create!(name: p['player-name'], address: p['player-address'], force_type: p['player-force-type'], pilot: p['player-pilot'], region: p['player-region'], mecha_good_1_id: p['player-mecha-id-good-1'], mecha_good_2_id: p['player-mecha-id-good-2'], mecha_good_3_id: p['player-mecha-id-good-3'], mecha_wanted_1_id: p['player-mecha-id-wanted-1'], mecha_wanted_2_id: p['player-mecha-id-wanted-2'], mecha_wanted_3_id: p['player-mecha-id-wanted-3'], confirmed: false)
+
+    # confirm
+    RzjcMailer.confirmation_for_solo_player(p,player.id).deliver
+
+    render :text => "確認メールを送信しました。添付されたリンクを開いてください。"
+  end
+
+  def confirmation_for_solo_player
+    if params['solo-player-id']
+      player = RzjcSoloPlayer.find(params['solo-player-id'])
+      if not player.confirmed
+        player.confirmed = true
+        player.save!
+        render :text => '登録が完了しました。'
+      else
+        render :text => "既に「#{team.name}」の登録を確認済みです。"
+      end
+    end
   end
 
   private
