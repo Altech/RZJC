@@ -28,6 +28,9 @@ class SingleController < ApplicationController
     if p['team-name'].size < 3
       render :text => "チーム名は3文字以上でお願いします" and return
     end
+    unless Mecha.find(p['player1-mecha-id']).cost + Mecha.find(p['player2-mecha-id']).cost < 1000
+      render :text => "オーバーコストは禁止です" and return
+    end
 
     # pre-save
     player1 = RzjcPlayer.create!(name: p['player1-name'], mecha_id: p['player1-mecha-id'], force_type: p['player1-force-type'], pilot: p['player1-pilot'])
