@@ -35,6 +35,11 @@ class SingleController < ApplicationController
     # pre-save
     player1 = RzjcPlayer.create!(name: p['player1-name'], mecha_id: p['player1-mecha-id'], force_type: p['player1-force-type'], pilot: p['player1-pilot'])
     player2 = RzjcPlayer.create!(name: p['player2-name'], mecha_id: p['player2-mecha-id'], force_type: p['player2-force-type'], pilot: p['player2-pilot'])
+
+    if Mecha.find(p['player1-mecha-id']).cost < Mecha.find(p['player2-mecha-id']).cost
+      player1, player2 = player2, player1
+    end
+
     question = RzjcQuestion.create!(exhibition: p['question-exhibition'])
     team = RzjcTeam.create!(name: p['team-name'], address: p['team-address'], region: p['team-region'], player1_id: player1.id, player2_id: player2.id, question_id: question.id, confirmed: false)
 
