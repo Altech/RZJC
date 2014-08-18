@@ -70,6 +70,11 @@ class SingleController < ApplicationController
     @teams = RzjcTeam.where(confirmed: true)
   end
 
+  def solo_players
+    @players = RzjcSoloPlayer.where(confirmed: true)
+    # [TODO] replace `all` as `where(confirmed: true)`
+  end
+
   def mediation_post(p = params)
     blankable_fields = %w[player-name player-region player-address player-address-confirm player-pilot]
     unless blankable_fields.all?{|f| p[f].present?}
