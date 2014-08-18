@@ -47,6 +47,13 @@ body.index {
       }
     }
 
+    #result {
+      a {
+        color: $section-title-color;
+        @media screen and (min-width: $pc-min-width){ color: $section-title-color-pc; }
+      }
+    }
+
     #entry #caution {
       color: lime;
       font-weight: bold;

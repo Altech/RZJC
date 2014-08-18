@@ -1,0 +1,22 @@
+#container
+  h2 斡旋登録一覧
+  .main-contents
+    dl
+      - @players.each_with_index do |solo_player, i|
+        dt
+          == "プレイヤー#{i+1}（#{solo_player.region}）"
+        dd
+          | 使用機体：
+          ol
+            - for mecha in solo_player.mechas_good do
+              li
+                == mecha.full_name
+          br
+          | 希望機体：
+          ol
+            - for mecha in solo_player.mechas_wanted do
+              li
+                == mecha.full_name
+
+
+

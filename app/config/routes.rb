@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root to: "single#index"
-  %w[index qanda teams solo_players].each do |page|
+  %w[index qanda teams solo_players result_2014 movie_2014].each do |page|
     get "/#{page}", to: "single##{page}"
   end
   %w[submit mediation].each do |page|

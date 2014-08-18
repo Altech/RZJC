@@ -43,9 +43,6 @@ gem 'unicorn'
 gem 'therubyracer', platforms: :ruby
 gem 'rb-readline', '~> 0.4.2' # for AMI
 
-# Use unicorn as the app server
-gem 'unicorn'
-
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'
 end
@@ -56,3 +53,5 @@ group :development do
 end
 
 gem 'io-console'
+
+gem 'fluent-logger'
