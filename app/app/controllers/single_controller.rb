@@ -11,6 +11,8 @@ class SingleController < ApplicationController
   end
 
   def submit_post(p = params)
+    render :text => "受付終了..." and return
+
     blankable_fields = %w[team-name team-address team-address-confirm player1-name player1-mecha-id player1-force-type player1-pilot player2-name player2-mecha-id player2-force-type player2-pilot]
     blankable_fields.each do |f|
       binding.pry if p[f].nil?
@@ -76,6 +78,8 @@ class SingleController < ApplicationController
   end
 
   def mediation_post(p = params)
+    render :text => "受付終了..." and return
+
     blankable_fields = %w[player-name player-region player-address player-address-confirm player-pilot]
     unless blankable_fields.all?{|f| p[f].present?}
       render :text => "全ての空欄を埋めてください" and return
